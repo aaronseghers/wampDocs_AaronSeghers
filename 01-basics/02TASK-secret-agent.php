@@ -16,8 +16,20 @@
         // Spare time? Style it with CSS!
 	    // ===========================================================
         
+		$codename = "John Prick";
+		$age = 25;
+		$favoriteGadget = "Cellphone";
+		$missionStatus = true;
 
+		echo "<h1>". $codename . "</h1>";
+		
+		echo "<p>" . "Age: " . $age . "</p>";
 
+		echo "<p>" . "Favorite Gadget: " . $favoriteGadget . "</p>";
+
+		echo "<p>" . "Mission Status: " . $missionStatus . "</p>";
+
+		
 		// Time: 3-10 minutes
 		// Ready? Push to GIT!
 	?>

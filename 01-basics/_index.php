@@ -14,9 +14,11 @@
     <!-- 4. [] Intro about PHP -->
 
     <!--   Talking to the world -->
-    <?php 
-    echo "Hello worold";
-    ?>
+    
+	<?php
+		echo "Hello World";
+		echo "<h1>Testtttt</h1>";
+	?>
     
 
 
