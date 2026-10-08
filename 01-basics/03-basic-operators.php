@@ -11,18 +11,25 @@
     
 	<?php 
         //========== Arithmetic operators
-		
-
+		// wiskundig (+ - / *)		
+		$a = 4;
+		$b = 2;
+		$c = $a * $b;
 
 
 		//========== Increment and decrement 
 		
+		$a++;
+		$a--;
 
 
 
 		//========== Assignment (and string) operators
 		
-
+		$d = "iets";
+		// = is de assignment operator
+		$d .= "nog iets";
+		echo $d;
 
 
 		//========== Arithmetic assignment operators
