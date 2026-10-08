@@ -12,15 +12,33 @@
 	<?php 
 		//========== 1. Make a multidimensional array
 
+		$biggestArray = [
+			[
+				"test",
+				"Enhiereentest"
+			],
 
+			[
+				"Test2 ofzo",
+				"Testnogisiets"
+			]
+		];
 
         //========== 2. Visualise some data from index 1 of the array you just created (don't just print)
-
-
+		
+		echo "<pre>";
+		echo("De eerste waarde: " . $biggestArray[0][0]);
+		echo "<br></br>";
+		echo("De eerste waarde: " . $biggestArray[0][1]);
+		echo "</pre>";
 
         //========== 3. Add more data to the existing array
 
-
+		$biggestArray[0][] = "Werkt dit effectief?";
+		echo "<br></br>";
+		echo "<pre>";
+		print_r($biggestArray);
+		echo "</pre>";
 
 		// Time: 5-15 minutes
 		// Record: Falco 3:23 (BINF, 2025)
