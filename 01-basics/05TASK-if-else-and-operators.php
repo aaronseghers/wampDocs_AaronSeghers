@@ -11,27 +11,37 @@
     
 	<?php 
 		//========== If
+		
+		$waarde1 = 1;
+		$waarde2 = 2;
+		$waarde3 = 1;
 
-
+		if($waarde1 == $waarde2){
+			echo "Waarde 1 = waarde 2";
+		}
 
 		//========== Else
 
-
+		// else{
+		// 	echo "Het is niet gelijk";
+		// }
 
 		//========== Else if
 		
-
+		else if($waarde1 == $waarde3){
+			echo "Waarde 1 is gelijk aan waarde 3";
+		}
 
 		//========== List all comparison operators (7)
 		
-
+		// >, <, <=, >=, ==, ===, !=
 
 		//========== List all logical operators (3)
 
-
+		// AND, OR, NOT
 
 		// Time: 6-10 minutes
-		// Record: ???
+		// Record: 5m 02s Aaron (6APDA, 2026)
 	    // Ready? Push to GIT!
 	?>
 
