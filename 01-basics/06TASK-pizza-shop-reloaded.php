@@ -9,6 +9,22 @@
 
 <body>
     
+	<form action="" method="get">
+		<div>
+			<label for="numberOfPizzas">Number of pizza's:</label>
+			<input type="text" name="numberOfPizzas" id="numberOfPizzas">
+		</div>
+		<div>
+			<label for="numberOfToppings">Aantal toppings:</label>
+			<input type="text" name="numberOfToppings" id="numberOfToppings">
+		</div>
+		<div>
+			<label for="peopleAmount">Aantal mensen:</label>
+			<input type="text" name="peopleAmount" id="peopleAmount">
+		</div>
+
+		<input type="submit" value="Submit">
+
 	<?php 
 	    // ===========================================================
 		// Adapt the previous task (pizza shop) and remove any unnecessary variables. 
@@ -17,12 +33,36 @@
 	    // ===========================================================
 		
 
+		if(isset($_GET["pizzaPrice"]) && isset($_GET["toppingPrice"]) && isset($_GET["deliveryFee"]) && isset($_GET["numberOfPizzas"]) && isset($_GET["numberOfToppings"]) && isset($_GET["peopleAmount"])){
+
+			$pizzaPrice = 15;
+			$toppingPrice = 2;
+			$deliveryFee = 5;
+			$numberOfPizzas = $_GET["numberOfPizzas"];
+			$numberOfToppings = $_GET["numberOfToppings"];
+			$peopleAmount = $_GET["peopleAmount"];
+			
+			$pizzaTotal = $pizzaPrice * $numberOfPizzas;
+			$toppingTotal = ($toppingPrice * $numberOfToppings) * $numberOfPizzas;
+
+			$amountOfSlices = $numberOfPizzas * 8;
+			$slicesPerPerson = $amountOfSlices / $peopleAmount;
+
+			$total = $pizzaTotal + $toppingTotal + $deliveryFee;
+
+			echo "<h1>" . "Rekening:" . "</h1>";
+			echo "<p>" . $numberOfPizzas . " pizza's" . "</p>";
+			echo "<p>" . "Prijs per pizza: €" . $pizzaPrice . "</p>";
+			echo "<p>" . $numberOfToppings . " toppings per pizza". "</p>";
+			echo "<p>" . "Prijs per topping: €" . $toppingPrice . "</p>";
+			echo "<p>" . "Prijs aan pizza's: €" . $pizzaTotal . "</p>";
+			echo "<p>" . "Prijs aan toppings: €" . $toppingTotal . "</p>";
+			echo "<p>" . "Totaalprijs: €" . $total . "</p>";
+			echo "<p>" . "Aantal slices per persoon: " . $slicesPerPerson . " slices" . "</p>";
+		}
+
 		
 
-		// Time: 3-10 minutes
-		// Record: 6:48 Vitally (APDA, 2025)
-		// Record: 7:42 Jasper (BINF, 2025)
-		// Ready? Push to GIT!
 	?>
 
 	<a href="06-post.php" class='previousTopic' disabled>Ga naar vorig topic</a>

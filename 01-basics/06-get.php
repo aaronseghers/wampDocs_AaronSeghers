@@ -10,13 +10,25 @@
 <body>
 	
 	<!-- Formulier -->
+	 <!-- inloggen via GET is geen goed idee -> heel onveilig -->
      
+	<form action="" method="get">
+	<label for="username">Gebruikersnaam:</label>
+	<input type="text" name="username" id="username">
+	<label for="password">Password:</label>
+	<input type="password" name="password" id="password">
 
+	<input type="submit" value="Login">
+	<!-- <button>Login</button> -->
+	</form>
 
 	<?php 
 		//========== GET superglobal
         
-
+	
+	if(isset($_GET["username"]) && isset($_GET["password"])){
+		echo $_GET["username"] , " " , $_GET["password"];
+	}
         
 	?>
     

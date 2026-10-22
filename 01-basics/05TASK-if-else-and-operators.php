@@ -38,7 +38,7 @@
 
 		//========== List all logical operators (3)
 
-		// AND, OR, NOT
+		// AND (&&), OR (||), NOT (!)
 
 		// Time: 6-10 minutes
 		// Record: 5m 02s Aaron (6APDA, 2026)
