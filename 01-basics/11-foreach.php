@@ -12,12 +12,22 @@
 	<?php 
         //========== Loop through indexed array with foreach
         
+		$indx = ["A", "B", "C", "D", "E"];
+		$keyd = [$een = "Een", $twee = "Twee", $drie = "Drie", $vier = "Vier", $vijf = "Vijf"];
 
+		
+		foreach ($indx as $indexedvalue) {
+			echo "$indexedvalue <br>";
+		}
 
+		echo "<br>";
 
         //========== Loop through keyed array with foreach
         
-
+		foreach ($keyd as $keyedvalue) {
+			echo "$keyedvalue <br>";
+		}
+		
 
 	?>
 

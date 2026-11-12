@@ -12,7 +12,14 @@
 	<?php 
 		//========== For loops
         
-
+		for($i = 0; $i<= 4; $i++){
+			if($i == 0){
+				echo "Dit is de ", ($i+1), "ste keer <br>";
+			}
+			else{
+				echo "Dit is de ", ($i+1), "de keer <br>";
+			}
+		}
 
 
 

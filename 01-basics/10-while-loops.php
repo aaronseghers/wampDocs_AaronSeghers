@@ -12,7 +12,17 @@
 	<?php 
         //========== While loops
         
+		$a = 0;
 
+		while ($a <= 9) {
+			if($a == 0){
+				echo "Dit is de " , $a+1, "ste keer <br>";
+			}
+			else{
+				echo "Dit is de " , $a+1, "de keer <br>";
+			}
+			$a++;
+		}
         
 	?>
 
