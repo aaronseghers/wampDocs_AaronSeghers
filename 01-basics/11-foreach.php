@@ -14,10 +14,16 @@
         
 		$indx = ["A", "B", "C", "D", "E"];
 		$keyd = [$een = "Een", $twee = "Twee", $drie = "Drie", $vier = "Vier", $vijf = "Vijf"];
-
+		$colors = ["red", "green", "black", "orange", "blue"];
 		
 		foreach ($indx as $indexedvalue) {
 			echo "$indexedvalue <br>";
+		}
+
+		echo "<br>";
+
+		foreach ($colors as $color){
+			echo "<p style='color:$color'>$color</p>";
 		}
 
 		echo "<br>";

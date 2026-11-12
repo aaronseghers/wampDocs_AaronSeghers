@@ -18,8 +18,18 @@
 		// Voeg een beetje leuke wiskunde toe: geef elke persoon een willekeurig "fun level" tussen 1-6 (Elke waarde heeft een andere betekenis) en echo dit naast hun naam. Bvb: "Alice is screaming!", "Bob is holding on tight!"
 		// ===========================================================
 		
+			$bezoekers = ["Johnny", "Jack", "Ferdy", "Braien", "Kraanman"];
+			$funlevels = ["doesnt like this!", "is screaming!", "has her hands up", "is peeing his pants!","is holding on tight!", "has a serious face"];
 
-
+			for ($i=0; $i <= 2 ; $i++) { 
+				echo "Rit ", $i+1, " vertrekt!<br><br>";
+				foreach ($bezoekers as $bezoeker) {
+					$funlevel = rand(0, 5);
+					$sentence = $funlevels[$funlevel];
+					echo "$bezoeker $sentence <br>";
+				}
+				echo "<br>";
+			}
 
 		
 
