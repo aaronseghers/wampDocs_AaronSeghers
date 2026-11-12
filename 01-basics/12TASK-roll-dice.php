@@ -18,6 +18,19 @@
 		
 		
 
+		function rollDice($result){
+			$sides = rand(2,20);
+			$dice = rand(1,$sides);
+			$aantalKeren = $sides * $dice;
+
+			$result = "Je rolde een dice met $sides kanten. $aantalKeren keer. De gegooide uitkomst is $dice.";
+			
+			return $result;
+		}
+
+		$resultaat = rollDice(1);
+		echo $resultaat;	
+
 		// Time: 5-12 minutes
 		// Record: 10:57 Falco (BINF, 2025)
 		// Ready? Upload to smartschool!

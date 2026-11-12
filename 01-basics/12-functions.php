@@ -10,21 +10,37 @@
 <body>
     
 	<?php 
-		//========== functions
-		
 
+		$bezoekers = ["Johnny", "Jack", "Ferdy", "Braien", "Kraanman"];
+
+
+		//========== functions
+
+		function mijnEersteFunctieMetEenVerwarrendeNaam(){
+		
+		};
+
+		//========== calling functions
+		
+		mijnEersteFunctieMetEenVerwarrendeNaam();
 
 		//========== return values
 		
+		function mijnEersteFunctieMetEenVerwarrendeNaam2(){
+			return "zwevende data";	
+		};
+		
+		mijnEersteFunctieMetEenVerwarrendeNaam2();
+		$teruggestuurdedata = mijnEersteFunctieMetEenVerwarrendeNaam2(); // opslaan voor later gebruik
+		echo "$teruggestuurdedata";
 
-		
-		//========== calling functions
-		
 
 
 		//========== functions with (fallback) parameters
 		
-		
+		function lachenMet($naam = "Lars"){
+
+		}
 
 	?>
 
