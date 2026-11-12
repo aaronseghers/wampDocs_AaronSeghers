@@ -19,14 +19,13 @@
 		// ===========================================================
 		
 			$bezoekers = ["Johnny", "Jack", "Ferdy", "Braien", "Kraanman"];
-			$funlevels = ["doesnt like this!", "is screaming!", "has her hands up", "is peeing his pants!","is holding on tight!", "has a serious face"];
+			$funlevels = ["doesnt like this!", "is screaming!", "has her hands up!", "is peeing his pants!","is holding on tight!", "has a serious face"];
 
 			for ($i=0; $i <= 2 ; $i++) { 
 				echo "Rit ", $i+1, " vertrekt!<br><br>";
 				foreach ($bezoekers as $bezoeker) {
 					$funlevel = rand(0, 5);
-					$sentence = $funlevels[$funlevel];
-					echo "$bezoeker $sentence <br>";
+					echo "$bezoeker ", $funlevels[$funlevel], "<br>";
 				}
 				echo "<br>";
 			}
