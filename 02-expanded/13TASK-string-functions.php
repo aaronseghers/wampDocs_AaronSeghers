@@ -16,17 +16,17 @@
 
 		//========== 1. Tel het aantal karakters in een string
 		$string = "Hello world!";
+		echo mb_strlen($string);
 
-
-
+		echo "<br>";
 		//========== 2. Zoek een woord in een string
 		$word = "lorem ipsum dolor sit amet";
+		echo str_contains($word, "sit");
 
-
-		
+		echo "<br>";
 		//========== 3. Vervang een woord in een string door een ander woord
 		$search = "lorem ipsum dolor sit amet";
-
+		echo str_replace("sit", "iets", $search);
 
 		
 		//========== 4. Converteer een string volledig naar hoofdletters
