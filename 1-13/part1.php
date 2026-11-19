@@ -26,8 +26,20 @@
 // Toon ook deze data in de browser op een gepaste manier.
 //=================================================================/5=
 
+$float = 7.5;
+$text = "PHP";
+$bool = true;
+$arr = ["Rood", "Blauw"];
 
+echo $float . " & " . $text . " & " . $bool;
 
+for($indx = 0; $indx < sizeof($arr); $indx++){
+	echo "<p>" . $arr[$indx] . "</p>";
+}
+
+// OF echo var_dump($arr);
+
+echo "<br>";
 //=2===================================================================
 // Bereken en toon:
 // - de totale prijs
@@ -37,7 +49,15 @@
 $prijs = 19;
 $aantal = 3;
 
+$totalePrijs = $prijs * $aantal;
+$prijsMetKorting = $totalePrijs - 5;
+$restVanPrijs = $totalePrijs % 4;
 
+echo "<p> De totale prijs is: €" . $totalePrijs . "</p>";
+echo "<p> De prijs na korting is: €" . $prijsMetKorting . "</p>";
+echo "<p> De rest van de prijs gedeeld door 4 is: €" . $restVanPrijs . "</p>";
+
+echo "<br>";
 //=3===================================================================
 // Maak een variabele .
 // Toon "Toegang toegestaan" als de bezoeker MINSTENS 16 jaar is
@@ -48,19 +68,37 @@ $aantal = 3;
 $leeftijd = 17;
 $heeftTicket = true;
 
+if($heeftTicket = true){
+	if($leeftijd >= 16){
+		echo "<p>Toegang toegestaan</p>";
+	}
+	else{
+		echo "<p>Toegang geweigerd</p>";
+	}
+}
+else if($leeftijd < 12 || $leeftijd >= 65){
+	echo "<p>Gratis toegang!</p>";
+}
+else{
+	echo "<p>Betalen.</p>";
+}
 
-
+echo "<br>";
 //=4===================================================================
 // Gebruik de variabele en toon:
-// - het absolute getal
 // - de waarde afgerond naar boven 
 // - de waarde afgerond naar beneden
 // - de waarde afgerond tot een geheel getal.
-//=================================================================/4=
+//=================================================================/3=
 $getal = -8.7;
 
+$absoluteGetal = abs($getal); // bonuspunt
+$rondNaarBoven = ceil($getal);
+$rondNaarOnder = floor($getal);
+$geheelGetal = round($getal);
+echo $absoluteGetal . " / " . $rondNaarBoven . " / " . $rondNaarOnder . " / " . $geheelGetal;
 
-
+echo "<br>";
 //=5===================================================================
 // Gebruik een for-loop om de getallen 2, 4, 6, 8 en 10 te tonen.
 // Gebruik daarna een foreach om alle waarden uit onderstaande
@@ -68,8 +106,18 @@ $getal = -8.7;
 //=================================================================/5=
 $kleuren = ["rood", "groen", "blauw"];
 
+for($indx = 0; $indx <= 10; $indx++){
+	if($indx % 2 == 0){
+		echo "<p>" . $indx . "</p>";
+	}
+	
+}
 
+foreach ($kleuren as $kleur) {
+	echo "<p>" . $kleur . "</p>";
+}
 
+echo "<br>";
 //=6===================================================================
 // Schrijf een functie berekenPrijs() die de totale prijs berekent
 // Aan het einde stuurt deze met return de prijs terug.
@@ -82,8 +130,15 @@ $kleuren = ["rood", "groen", "blauw"];
 // - met enkel prijs 9
 //=================================================================/5=
 
+function berekenPrijs($prijs, $aantal = 1){
+	$totalePrijs = $prijs * $aantal;	
+	return $totalePrijs;
+}
 
+echo "<p>" . berekenPrijs(12, 4) . "</p>";
+echo "<p>" . berekenPrijs(9) . "</p>";
 
+echo "<br>";
 //=7===================================================================
 // Met behulp van String functions;
 // - Verwijder de spaties vooraan en achteraan.
@@ -93,10 +148,21 @@ $kleuren = ["rood", "groen", "blauw"];
 //=================================================================/4=
 $zin = "  Welkom bij PHP!  ";
 
+// $zonderSpaties = $zonderSpaties.replace(" ", "");
+// $kleineLetters = string.lowercase($zin);
+$aantalTekens = string.count_chars($zin);
+// $prog = string.replace("PHP", "Programmeren");
 
+echo "<p>" . $zonderSpaties . " / " . $kleineLetters . " / " . $aantalTekens . " / " . $prog . "</p>";
 
+echo "<br>";
 //=8===================================================================
 // Leg het verschil uit tussen GET en POST. 
 // Toon hoe je de data kan ophalen en hoe je GET manueel kan meesturen.
 //=================================================================/4=
 
+// Bij GET neem je waarden op, die duidelijk zichtbaar zijn. Denk hierbij bijvoorbeeld aan een zoekbalk waarbij de waarde meegegeven word in de URL om dit makkelijk te kunnen delen.
+// Bij POST neem je ook waarden op, maar deze blijven achterliggend geheim. Je kan ze dus niet zomaar zien (via bv de URl), maar kan er wel mee werken. Denk hierbij bijvoorbeeld aan een gebruikersnaam of een geheim wachtwoord.
+
+// Voor data op te halen, gebruik je $_GET[(waarde)];
+// Voor data manueel mee te sturen, kan je dus ook toevoegen aan de array die GET is -> $_GET[] = "(waarde)";
