@@ -49,7 +49,18 @@
     
 	<?php 
 		//========== Show selected values in html after submitting. That's it.
-		
+		if($_POST["username"] == ""){
+
+		}
+
+		if(isset($_POST["username"]) && $_POST["username"] != ""){
+			
+		}
+
+		if(empty($_POST["username"])){
+			
+		}
+
 	?>
 
     <script src="15-forms-expanded.js"></script>
