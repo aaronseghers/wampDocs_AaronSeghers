@@ -18,18 +18,20 @@
 		
 		
 
-		function rollDice($result){
-			$sides = rand(2,20);
-			$dice = rand(1,$sides);
-			$aantalKeren = $sides * $dice;
-
-			$result = "Je rolde een dice met $sides kanten. $aantalKeren keer. De gegooide uitkomst is $dice.";
+		function rollDice($sides, $dices){
+			$totalPoints = 0;
+			$returnstring = "";
 			
-			return $result;
+			for($i = 0; $i <= $dices; $i++){
+				$individualRoll = rand(1, $sides);
+				$totalPoints += $individualRoll;
+				echo "Je rolde een 1D$sides en kreeg $individualRoll punten. <br>";
+			}
+			
+			echo "Je hebt in totaal $totalPoints punten.";
 		}
 
-		$resultaat = rollDice(1);
-		echo $resultaat;	
+		echo rollDice(6,2);
 
 		// Time: 5-12 minutes
 		// Record: 10:57 Falco (BINF, 2025)
