@@ -25,16 +25,6 @@ Maak een HTML-formulier met:
 </head>
 
 <body>
-	
-	<?php
-		if(isset($_POST["naam"])){
-			$naam = $_POST["naam"];
-		}
-		else{
-			$naam = "";
-		}
-	?>
-
 	<!-- Formulier -->
 
 	<form action="" method="post">
@@ -46,9 +36,10 @@ Maak een HTML-formulier met:
 	<br>
 	<label for="voertuigType">Voertuigtype:</label>
 	<select id="voertuigType" name="voertuigType" size="1">
-		<option value="scooter">Scooter</option>
-		<option value="SUV">SUV</option>
-		<option value="sportwagen">Sportwagen</option>
+		<?php foreach ($voertuigen as $voertuig) {
+			echo "<option value='$voertuig'>$voertuig</option>";
+		};
+		?>
 	</select>
 	<br>
 	<label for="promoCode">Promotiecode:</label>
@@ -63,6 +54,8 @@ Maak een HTML-formulier met:
 
 <?php
 
+
+
 // HUURPRIJZEN PER DAG:
 // scooter: 35 euro
 // SUV: 80 euro
@@ -70,11 +63,17 @@ Maak een HTML-formulier met:
 // Promotiecode "VICE10": 10% korting op de totale huurprijs.
 // Andere codes leveren geen korting op.
 
+$voertuigen = [
+	"scooter",
+	"SUV",
+	"sportwagen"];
+
 $prijzen = [
+	"undefined" => 0,
 	"scooter" => 35,
 	"SUV" => 80,
 	"sportwagen" => 120];
-$promocodes = [
+$promoCodes = [
 	"VICE10" => 10
 ];
 
@@ -87,13 +86,71 @@ $promocodes = [
 // [] de melding "Lange roadtrip!" bij minstens 7 huurdagen,
 //   anders "Veel plezier in Vice City!"
 
+// IF (is empty) handling
+
+if(isset($_POST["naam"])){
+	$naam = $_POST["naam"];
+}
+else{
+	$naam = "";
+}
+if(isset($_POST["aantalHuurDagen"])){
+	$aantalHuurDagen = $_POST["aantalHuurDagen"];
+}
+else{
+	$aantalHuurDagen = 0;
+}
+if(isset($_POST["voertuigType"])){
+	$voertuigType = $_POST["voertuigType"];
+}
+else{
+	$voertuigType = "undefined";
+}
+if(isset($_POST["promoCode"]) && $_POST["promoCode"] !== ""){
+	$promoCode = $_POST["promoCode"];
+}
+else{
+	$promoCode = "undefined";
+}
+
+// DISPLAY
+
 echo "<br>";
-echo "Hallo " . $_POST["naam"] . ", welkom bij Vice City Rentals!";
+echo "Hallo " . $naam . ", welkom bij Vice City Rentals!";
 echo "<br>";
-echo "Je koos een voertuig type " . $_POST["voertuigType"] . " voor " . $_POST["aantalHuurDagen"] . " dagen.";
+if($aantalHuurDagen == 1){
+	echo "Je koos een voertuig type " . $voertuigType . " voor " . $aantalHuurDagen . " dag.";
+}
+else{
+	echo "Je koos een voertuig type " . $voertuigType . " voor " . $aantalHuurDagen . " dagen.";
+}
 echo "<br>";
-$voertuigVoorPrijs = [$_POST[$voertuigType]];
-echo "De huurprijs per dag bedraagt €" . $prijzen[$voertuigVoorPrijs];
+$huurPrijs = $prijzen[$voertuigType];
+echo "De huurprijs per dag bedraagt €" . $huurPrijs;
+echo "<br>";
+if($aantalHuurDagen > 0){
+	$totalePrijs = round(($aantalHuurDagen * $huurPrijs), 2);
+}
+else{
+	$totalePrijs = 0;
+}
+echo "De totale kost bedraagt: €" . $totalePrijs;
+echo "<br>";
+$kortingValue = $promoCodes[$promoCode] ?? 0;
+$korting = ($kortingValue / 100);
+$kortingInEuro = round(($korting * $totalePrijs), 2);
+if($kortingValue != 0){
+	echo "Je krijgt €" . $kortingInEuro . " korting!";
+}
+$totaalMinKorting = $totalePrijs - $kortingInEuro;
+
+echo "<br>";
+echo "------------------------------";
+echo "<br>";
+echo "Je moet in totaal €" . $totaalMinKorting . " betalen.";
+
+
+
 
 // CHECKLIST technische eisen:
 // [] Maak een functie dagPrijs($voertuig) die met return de
@@ -126,9 +183,5 @@ echo "De huurprijs per dag bedraagt €" . $prijzen[$voertuigVoorPrijs];
 // 	['SUV', 80],
 // 	['sportwagen', 120],
 // ];
-
-echo "<br>";
-echo "<br>";
-print_r($_POST)
 
 ?>
